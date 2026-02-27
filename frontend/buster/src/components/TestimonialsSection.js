@@ -1,36 +1,36 @@
 const testimonials = [
     {
-        quote:
-            "Buster caught a deepfake that fooled three other detection tools. The noise-pattern analysis is genuinely next-level.",
+        quote: "The noise-pattern analysis is genuinely impressive. This is the kind of tool every newsroom needs in the age of AI-generated content.",
         author: "Dr. Sarah Chen",
-        role: "Digital Forensics Lead, CyberSafe Labs",
+        role: "Digital Forensics Researcher",
         initials: "SC",
+        stars: 5,
     },
     {
-        quote:
-            "We integrated the API into our newsroom workflow. Every submitted photo now gets scanned before publication. Zero false negatives so far.",
+        quote: "Being able to just paste a link and get an instant forensic breakdown is a game-changer. No downloads, no setup, just results.",
         author: "Marcus Webb",
-        role: "Editor-in-Chief, TruthWire Media",
+        role: "Investigative Journalist",
         initials: "MW",
+        stars: 5,
     },
     {
-        quote:
-            "The speed is unreal — sub-second analysis on a 4K image. And the confidence report gives us exactly the evidence trail we need.",
+        quote: "The speed is unreal — sub-second analysis. The confidence report gives exactly the evidence trail you need for verification.",
         author: "Priya Desai",
-        role: "Trust & Safety Engineer, SocialGuard",
+        role: "Trust & Safety Engineer",
         initials: "PD",
+        stars: 5,
     },
 ];
 
 export default function TestimonialsSection() {
     return (
-        <section className="relative z-20 mx-auto max-w-6xl px-4 pb-24 sm:px-6 md:pb-32">
-            <div className="mb-14 text-center md:mb-16">
-                <p className="mb-3 text-[10px] font-bold tracking-[0.3em] text-green-400/70 uppercase">
-                    Trusted By Experts
+        <section id="testimonials" className="relative mx-auto max-w-6xl px-4 pb-14 sm:px-6 md:pb-20">
+            <div className="mb-10 text-center md:mb-12">
+                <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[var(--accent-hover)] uppercase">
+                    Early Feedback
                 </p>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                    What Our Users Say
+                <h2 className="text-3xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
+                    What people are saying
                 </h2>
             </div>
 
@@ -38,27 +38,27 @@ export default function TestimonialsSection() {
                 {testimonials.map((t, idx) => (
                     <div
                         key={idx}
-                        className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 backdrop-blur-sm transition-all duration-500 hover:border-white/12 sm:rounded-3xl sm:p-8"
+                        className="group relative overflow-hidden rounded-2xl border border-black/6 bg-white p-7 shadow-sm transition-all duration-400 hover:shadow-lg hover:shadow-black/8 sm:rounded-3xl sm:p-8"
                     >
-                        <svg
-                            className="mb-5 h-8 w-8 text-green-400/20"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
-                        </svg>
+                        <div className="mb-4 flex gap-1">
+                            {Array.from({ length: t.stars }).map((_, i) => (
+                                <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#FFD233">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            ))}
+                        </div>
 
-                        <p className="mb-8 text-sm leading-relaxed text-gray-400">
+                        <p className="mb-8 text-sm leading-relaxed text-[var(--text-secondary)]">
                             &ldquo;{t.quote}&rdquo;
                         </p>
 
-                        <div className="flex items-center gap-3 border-t border-white/5 pt-5">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-green-400/20 to-cyan-400/20 text-[11px] font-bold text-green-400">
+                        <div className="flex items-center gap-3 border-t border-black/6 pt-5">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)]/20 text-xs font-bold text-[var(--foreground)]">
                                 {t.initials}
                             </div>
                             <div>
-                                <div className="text-sm font-bold">{t.author}</div>
-                                <div className="text-[11px] text-gray-600">{t.role}</div>
+                                <div className="text-sm font-bold text-[var(--foreground)]">{t.author}</div>
+                                <div className="text-xs text-[var(--text-muted)]">{t.role}</div>
                             </div>
                         </div>
                     </div>
