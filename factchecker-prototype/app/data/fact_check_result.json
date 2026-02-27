@@ -1,0 +1,24 @@
+{
+    "post_url": "https://www.instagram.com/p/DIIPB_bumH_/?hl=en",
+    "owner": "ainterestingaf",
+    "caption": "Your turn.\n\nBy u/ureathrafranklin1",
+    "image_descriptions": [
+        "The image features Pierce Brosnan, the fourth actor to play James Bond, sitting on a couch or chair in a living room or den. He is dressed in a black tuxedo with a white shirt and black bow tie.\n\n**People:**\n- Pierce Brosnan, dressed as James Bond, is the central figure in the image.\n\n**Objects:**\n- A GameCube controller, held by Pierce Brosnan\n- A television set behind him\n- A wooden dresser or TV stand\n\n**Visible Text:**\n- The text \"sinta\" appears on the screen of the television set.\n\n**Location Clues:**\n- The setting appears to be a living room or den, characterized by beige walls and a brown curtain. There is a television on a wooden dresser or TV stand.\n\n**Events:**\n- No specific event is indicated, but the image suggests that Pierce Brosnan is engaged in playing a video game.\n\n**Dates:**\n- The image likely dates back to the early 2000s, given the GameCube controller and Pierce Brosnan's portrayal of James Bond during that period.\n\n**Statistics:**\n- No statistics are presented in the image.\n\n**Factual Claims:**\n- Pierce Brosnan played James Bond from 1995 to 2002.\n- The GameCube was released in 2001."
+    ],
+    "extracted_claims": [
+        "Pierce Brosnan played James Bond from 1995 to 2002.",
+        "The GameCube was released in 2001.",
+        "Pierce Brosnan was the fourth actor to play James Bond.",
+        "NO ADDITIONAL VERIFIABLE CLAIMS FOUND"
+    ],
+    "verdict": "FAKE",
+    "confidence": "MEDIUM",
+    "explanation": "[REAL] Pierce Brosnan played James Bond from 1995 to 2002.: According to Wikipedia, Pierce Brosnan played James Bond in four films from 1995 to 2002: GoldenEye, Tomorrow Never Dies, The World Is Not Enough, and Die Another Day. This is also confirmed by IMDb and Britannica. | [REAL] The GameCube was released in 2001.: According to Wikipedia and Nintendo's fandom page, the GameCube was released in Japan on September 14, 2001, and in North America on November 18, 2001. This is also confirmed by other sources such as Britannica and Nintendo's history page. | [FAKE] Pierce Brosnan was the fourth actor to play James Bond.: According to Wikipedia and James Bond Wiki, Pierce Brosnan was the fifth actor to play James Bond, not the fourth. The actors who played James Bond before Brosnan were Sean Connery, George Lazenby, Roger Moore, and Timothy Dalton.",
+    "key_sources": [
+        "https://en.wikipedia.org/wiki/Pierce_Brosnan",
+        "https://m.imdb.com/name/nm0000112/",
+        "https://www.britannica.com/biography/Pierce-Brosnan",
+        "https://en.wikipedia.org/wiki/GameCube",
+        "https://nintendo.fandom.com/wiki/Nintendo_GameCube"
+    ]
+}

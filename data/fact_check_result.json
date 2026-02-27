@@ -1,0 +1,17 @@
+{
+    "post_url": "https://www.instagram.com/p/DIIPB_bumH_/?hl=en",
+    "owner": "ainterestingaf",
+    "caption": "Your turn.\n\nBy u/ureathrafranklin1",
+    "image_descriptions": [
+        "The image depicts a man dressed in a tuxedo, sitting on the floor and holding a video game controller.\n\nThe man has short, dark hair and wears a black tuxedo with a white shirt and black bow tie. He is seated on the floor with his right leg bent and his left leg extended, positioned slightly to the right of center. His right hand grasps a gray video game controller featuring a directional pad, four colored buttons (red, green, blue, and yellow), and two smaller buttons. The controller is pointed towards the camera.\n\nIn the background, a television displays a video game scene showing a character standing in a dimly lit corridor. The television sits atop a wooden dresser or cabinet with two visible drawers. A curtain is partially visible on the left side of the image, while the walls are beige.\n\nThe only visible text appears on the television screen: \"sinta\", located at the bottom center. \n\nOverall, the image presents a humorous scene of a man dressed formally engaging in a casual activity like playing video games."
+    ],
+    "extracted_claims": [
+        "NO VERIFIABLE CLAIMS"
+    ],
+    "verdict": "NOT ENOUGH INFO",
+    "confidence": "LOW",
+    "explanation": "There are no verifiable claims to cross-reference against the evidence. The provided sources discuss the concept of verifiable claims, but do not support or contradict any specific claim. According to Sovrin, a verifiable claim is a piece of information that is cryptographically trustworthy, as stated in https://sovrin.org/faq/what-is-a-verifiable-claim/.",
+    "key_sources": [
+        "https://sovrin.org/faq/what-is-a-verifiable-claim/"
+    ]
+}
