@@ -62,3 +62,4 @@ htmlcov/
 # Hugging Face / OS caching
 .cache
 backend/test_api_out*
+run_logs/

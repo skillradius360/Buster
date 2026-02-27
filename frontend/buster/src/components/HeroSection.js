@@ -243,21 +243,21 @@ export default function HeroSection() {
                     </div>
                 )}
 
-                {result && (
-                    <div className="animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-[var(--background-secondary)] bg-white shadow-2xl shadow-black/5 backdrop-blur-xl transition-all duration-500 hover:shadow-black/10">
+                {result && result.results && result.results.map((res, idx) => (
+                    <div key={idx} className="mb-8 animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-[var(--background-secondary)] bg-white shadow-2xl shadow-black/5 backdrop-blur-xl transition-all duration-500 hover:shadow-black/10">
                         <div className="flex flex-col md:flex-row md:items-stretch text-left">
-                            {result.scraped_image_url && (
+                            {(res.base64_image || res.scraped_image_url) && (
                                 <div className="relative h-64 w-full md:h-auto md:w-2/5 md:max-w-xs shrink-0 bg-[var(--background)] border-b md:border-b-0 md:border-r border-black/5">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={result.scraped_image_url} alt="Scraped link preview" className="absolute inset-0 h-full w-full object-cover" />
+                                    <img src={res.base64_image || res.scraped_image_url} alt={`Scraped preview ${idx + 1}`} referrerPolicy="no-referrer" className="absolute inset-0 h-full w-full object-cover" />
                                 </div>
                             )}
                             <div className="flex-1 p-6 sm:p-8 md:p-10 flex flex-col justify-between">
                                 <div>
                                     <div className="mb-4 flex items-center justify-between">
-                                        <h3 className="text-xs font-bold tracking-widest text-[var(--text-muted)] uppercase">Buster Final Result</h3>
-                                        <span className={`px-4 py-1.5 rounded-full text-xs font-black tracking-widest text-white uppercase ${result.result && (result.result.includes("FAKE") || result.result.includes("ARTIFICIAL")) ? "bg-red-500 shadow-xl shadow-red-500/30" : "bg-emerald-500 shadow-xl shadow-emerald-500/30"} shadow-lg flex items-center gap-2`}>
-                                            {result.result && (result.result.includes("FAKE") || result.result.includes("ARTIFICIAL")) ? (
+                                        <h3 className="text-xs font-bold tracking-widest text-[var(--text-muted)] uppercase">Buster Final Result {result.results.length > 1 ? `(${idx + 1}/${result.results.length})` : ""}</h3>
+                                        <span className={`px-4 py-1.5 rounded-full text-xs font-black tracking-widest text-white uppercase ${res.result && (res.result.includes("FAKE") || res.result.includes("ARTIFICIAL") || res.result.includes("AI")) ? "bg-red-500 shadow-xl shadow-red-500/30" : "bg-emerald-500 shadow-xl shadow-emerald-500/30"} shadow-lg flex items-center gap-2`}>
+                                            {res.result && (res.result.includes("FAKE") || res.result.includes("ARTIFICIAL") || res.result.includes("AI")) ? (
                                                 <>🚨 <span>FAKE</span></>
                                             ) : (
                                                 <>✅ <span>REAL</span></>
@@ -265,11 +265,11 @@ export default function HeroSection() {
                                         </span>
                                     </div>
                                     <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--foreground)] mt-2">
-                                        {result.confidence ? Math.round(result.confidence * 100) : "--"}% <span className="text-[var(--text-muted)] font-bold text-2xl sm:text-3xl">Match</span>
+                                        {res.confidence ? Math.round(res.confidence * 100) : "--"}% <span className="text-[var(--text-muted)] font-bold text-2xl sm:text-3xl">Match</span>
                                     </div>
 
                                     <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]">
-                                        {result.result && (result.result.includes("FAKE") || result.result.includes("ARTIFICIAL"))
+                                        {res.result && (res.result.includes("FAKE") || res.result.includes("ARTIFICIAL") || res.result.includes("AI"))
                                             ? "This image contains deepfake artifacts or was generated entirely by an AI."
                                             : "We found no evidence of an AI generator. This content looks highly authentic."}
                                     </p>
@@ -279,14 +279,14 @@ export default function HeroSection() {
                                     <p className="flex items-center justify-between">
                                         <span className="font-semibold text-[var(--text-muted)] uppercase tracking-wider text-[10px]">Processing Engine</span>
                                         <span className="font-mono bg-[var(--background)] border border-[var(--background-secondary)] px-2.5 py-1 rounded-md text-[10px] sm:text-xs">
-                                            The Gate ⚡ {result.model_used ? result.model_used.split("/").pop() : "Unknown"}
+                                            The Gate ⚡ {res.model_used ? res.model_used.split("/").pop() : "Unknown"}
                                         </span>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                )}
+                ))}
             </section>
         </>
     );
