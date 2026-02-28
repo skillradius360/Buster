@@ -48,12 +48,24 @@ app = FastAPI(
 # CORS CONFIG (IMPORTANT FOR FRONTEND)
 # ============================================================
 
+import os
+
+# Allow localhost for development and Render.com domains for production
+allowed_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# Add production origins from environment or default Render patterns
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url:
+    allowed_origins.append(frontend_url)
+
+# Allow all .onrender.com subdomains for flexibility
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=allowed_origins,
+    allow_origin_regex=r"https://.*\.onrender\.com",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -242,4 +254,7 @@ async def general_exception_handler(request, exc):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+    import os
+
+    port = int(os.environ.get("PORT", 10000)) or 10000
+    uvicorn.run("api:app", host="0.0.0.0", port=port)
