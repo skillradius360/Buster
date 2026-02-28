@@ -48,25 +48,11 @@ app = FastAPI(
 # CORS CONFIG (IMPORTANT FOR FRONTEND)
 # ============================================================
 
-import os
-
-# Allow localhost for development and Render.com domains for production
-allowed_origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-
-# Add production origins from environment or default Render patterns
-frontend_url = os.getenv("FRONTEND_URL")
-if frontend_url:
-    allowed_origins.append(frontend_url)
-
-# Allow all .onrender.com subdomains for flexibility
+# Allow all origins - API is publicly accessible
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
-    allow_origin_regex=r"https://.*\.onrender\.com",
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,  # Must be False when allow_origins=["*"]
     allow_methods=["*"],
     allow_headers=["*"],
 )
